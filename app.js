@@ -75,6 +75,26 @@ const projects = [
   },
 ];
 const projectDialog = document.querySelector("#project-dialog");
+const projectFilters = document.querySelector(".project-filters");
+projectFilters.hidden = false;
+projectFilters.querySelectorAll("[data-filter]").forEach((filter) => {
+  filter.addEventListener("click", () => {
+    const category = filter.dataset.filter;
+    let count = 0;
+    document.querySelectorAll("[data-project]").forEach((card) => {
+      card.hidden = category !== "all" && card.dataset.category !== category;
+      if (!card.hidden) count += 1;
+    });
+    projectFilters.querySelectorAll("[data-filter]").forEach((button) => {
+      button.setAttribute("aria-pressed", String(button === filter));
+    });
+    document
+      .querySelector(".projects-grid")
+      .classList.toggle("is-filtered", category !== "all");
+    document.querySelector("#project-count").textContent =
+      `${String(count).padStart(2, "0")} ${count === 1 ? "пространство" : "пространства"}`;
+  });
+});
 projectDialog.setAttribute("aria-labelledby", "project-modal-title");
 document.querySelectorAll("[data-project]").forEach((button) =>
   button.addEventListener("click", () => {
@@ -129,3 +149,6 @@ document
   .querySelector('input[name="name"]')
   .addEventListener("input", (event) => event.target.setCustomValidity(""));
 document.querySelector("#year").textContent = new Date().getFullYear();
+document.querySelector("#brief-form").addEventListener("input", () => {
+  document.querySelector("#form-status").textContent = "";
+});
