@@ -5,7 +5,7 @@ import shutil
 import tempfile
 from pathlib import Path
 
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--url', default='http://127.0.0.1:3000')
@@ -20,31 +20,26 @@ with sync_playwright() as playwright:
     response = page.goto(args.url, wait_until='networkidle')
     assert response.status == 200
     page.evaluate('document.fonts.ready')
-    assert page.locator('h1').inner_text() == 'Дом — это\nпро вас.'
-    assert page.evaluate('getComputedStyle(document.body).backgroundColor') == 'rgb(228, 228, 228)'
-    assert page.evaluate('getComputedStyle(document.body).fontFamily').startswith('Inter')
-    assert page.evaluate('getComputedStyle(document.body).fontSize') == '16px'
-    page.set_viewport_size({'width': 1920, 'height': 1080})
-    assert page.locator('h1').evaluate('(el) => getComputedStyle(el).fontSize') == '127px'
-    assert page.locator('h1').evaluate('(el) => getComputedStyle(el).fontWeight') == '700'
-    page.set_viewport_size({'width': 1440, 'height': 1000})
+    assert page.locator('h1').inner_text().lower() == 'быть\nдома'
+    assert page.locator('[data-project]').count() == 3
     for image in page.locator('main img').all():
         image.scroll_into_view_if_needed()
         image.evaluate('(el) => el.decode()')
     assert page.evaluate('Array.from(document.images).every(i => i.complete && i.naturalWidth > 0)')
 
     # Filters also update their accessible state and announcement.
-    for category, project in [('apartment', '0'), ('residence', '1')]:
+    page.locator('.filter-panel > summary').click()
+    for category, project in [('apartment', '0'), ('house', '1'), ('residence', '2')]:
         button = page.locator(f'[data-filter="{category}"]')
         button.click()
         assert button.get_attribute('aria-pressed') == 'true'
         assert page.locator('[data-project]:visible').count() == 1
         assert page.locator(f'[data-project="{project}"]').is_visible()
-        assert page.locator('#project-count').inner_text() == '01 пространство'
+        assert page.locator('#project-count').inner_text() == 'Показано проектов: 1.'
     page.locator('[data-filter="all"]').click()
-    assert page.locator('[data-project]:visible').count() == 2
+    assert page.locator('[data-project]:visible').count() == 3
 
-    for index, title in [('0', 'Тёплый свет'), ('1', 'Тихое утро')]:
+    for index, title in [('0', 'Тёплый свет'), ('1', 'Тихое утро'), ('2', 'Линия покоя')]:
         card = page.locator(f'[data-project="{index}"]')
         card.click()
         assert page.locator('#project-dialog').evaluate('(el) => el.open')
@@ -52,6 +47,8 @@ with sync_playwright() as playwright:
         page.keyboard.press('Escape')
         assert card.evaluate('(el) => el === document.activeElement')
 
+    page.locator('[data-studio]').click()
+    assert page.locator('#studio-dialog').evaluate('(el) => el.open')
     # Use the keyboard for accordion controls.
     summary = page.locator('.steps details').nth(1).locator('summary')
     summary.focus()
@@ -60,6 +57,8 @@ with sync_playwright() as playwright:
     page.locator('.faq-list summary').first.click()
     assert page.locator('.faq-list details').first.evaluate('(el) => el.open')
 
+    page.keyboard.press('Escape')
+    assert page.locator('[data-studio]').evaluate('(el) => el === document.activeElement')
     page.locator('.nav-contact').click()
     form = page.locator('#brief-form')
     form.locator('button[type="submit"]').click()
@@ -89,12 +88,18 @@ with sync_playwright() as playwright:
     for width in [320, 390, 768, 1024, 1440, 1920]:
         page.set_viewport_size({'width': width, 'height': 900})
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), width
-        # Both the heading and the intro must remain within the viewport.
-        for selector in ['.hero-copy', '.hero-intro', '.hero-cta']:
+        # Readable content stays on-screen; the title may overlap the photograph.
+        for selector in ['h1', '.hero-description', '.hero-cta', '.studio-copy']:
             rect = page.locator(selector).bounding_box()
             assert rect['x'] >= 0 and rect['x'] + rect['width'] <= width, (width, selector)
 
     page.set_viewport_size({'width': 390, 'height': 844})
+    gallery = page.locator('.projects-grid')
+    assert gallery.evaluate('(el) => el.scrollWidth > el.clientWidth')
+    gallery.evaluate('(el) => { el.scrollLeft = el.scrollWidth; }')
+    page.locator('[data-project="2"]').click()
+    assert page.locator('#project-modal-title').inner_text() == 'Линия покоя'
+    page.keyboard.press('Escape')
     page.locator('.menu-toggle').click()
     assert page.locator('.menu-toggle').get_attribute('aria-expanded') == 'true'
     page.locator('.navigation a[href="#projects"]').click()
@@ -102,8 +107,14 @@ with sync_playwright() as playwright:
     page.locator('.menu-toggle').click()
     page.keyboard.press('Escape')
     assert page.locator('.menu-toggle').get_attribute('aria-expanded') == 'false'
+    page.locator('.menu-toggle').click()
+    page.locator('.nav-contact').click()
+    assert page.locator('#brief-dialog').evaluate('(el) => el.open')
+    assert page.locator('.menu-toggle').get_attribute('aria-expanded') == 'false'
+    page.keyboard.press('Escape')
+    expect(page.locator('.menu-toggle')).to_be_focused()
     page.emulate_media(reduced_motion='reduce')
     assert page.evaluate('getComputedStyle(document.documentElement).scrollBehavior') == 'auto'
     assert not errors, errors
     browser.close()
-    print('Passed: responsive layout, filters, dialogs, accordions, form validation, brief download, menu and reduced motion; no JS errors.')
+    print('Passed: responsive layout, filters, touch gallery, studio/project dialogs, accordions, form validation, brief download, menu and reduced motion; no JS errors.')

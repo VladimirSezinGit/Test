@@ -33,10 +33,23 @@ document.addEventListener("click", (event) => {
 matchMedia("(min-width: 761px)").addEventListener("change", closeMenu);
 
 const briefDialog = document.querySelector("#brief-dialog");
+let briefFocusTarget = null;
+briefDialog.addEventListener("close", () => {
+  briefFocusTarget?.focus();
+  briefFocusTarget = null;
+});
+const studioDialog = document.querySelector("#studio-dialog");
+document.querySelectorAll("[data-studio]").forEach((button) => {
+  button.addEventListener("click", () => studioDialog.showModal());
+});
 briefDialog.setAttribute("aria-labelledby", "brief-title");
 briefDialog.querySelector("h2").id = "brief-title";
 document.querySelectorAll("[data-brief]").forEach((button) =>
   button.addEventListener("click", () => {
+    briefFocusTarget =
+      navigation.contains(button) && menuButton.getClientRects().length
+        ? menuButton
+        : button;
     closeMenu();
     briefDialog.showModal();
   }),
@@ -68,15 +81,22 @@ const projects = [
   },
   {
     title: "Тихое утро",
-    meta: "Концепция · Апартаменты · 64 м² · 2026",
-    image: "assets/detail.webp",
+    meta: "Концепция · Загородный дом · 180 м² · 2026",
+    image: "assets/dining.webp",
     description:
-      "Небольшой дом с большим вниманием к повседневности. Обеденный стол становится центром пространства: здесь пьют утренний кофе, работают и собирают друзей. Натуральный дуб, фактурная керамика и льняные шторы создают спокойный фон для жизни.",
+      "Дом для неспешных встреч и тихих утренних ритуалов. Центр пространства — обеденный стол из натурального дуба. Тёмные панели, мягкий свет и фактурная керамика создают ощущение тепла и защищённости.",
+  },
+  {
+    title: "Линия покоя",
+    meta: "Концепция · Апартаменты · 64 м² · 2026",
+    image: "assets/bedroom.webp",
+    description:
+      "Спокойное пространство, где день начинается с мягкого света. Ореховые панели, льняные ткани и простые формы помогают освободить интерьер от визуального шума. В каждой детали — внимание к отдыху и вашему собственному ритму.",
   },
 ];
 const projectDialog = document.querySelector("#project-dialog");
 const projectFilters = document.querySelector(".project-filters");
-projectFilters.hidden = false;
+document.querySelector(".filter-panel").hidden = false;
 projectFilters.querySelectorAll("[data-filter]").forEach((filter) => {
   filter.addEventListener("click", () => {
     const category = filter.dataset.filter;
@@ -89,7 +109,7 @@ projectFilters.querySelectorAll("[data-filter]").forEach((filter) => {
       button.setAttribute("aria-pressed", String(button === filter));
     });
     document.querySelector("#project-count").textContent =
-      `${String(count).padStart(2, "0")} ${count === 1 ? "пространство" : "пространства"}`;
+      `Показано проектов: ${count}.`;
   });
 });
 projectDialog.setAttribute("aria-labelledby", "project-modal-title");

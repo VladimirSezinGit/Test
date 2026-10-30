@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#E4E4E4" />
+    <meta name="theme-color" content="#242321" />
     <meta
       name="description"
       content="ТИШЕ — концепт студии интерьеров. Пространства с характером, натуральные материалы и внимание к вашему образу жизни."
@@ -15,7 +15,7 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ru_RU" />
-    <meta property="og:image" content="assets/interior.webp" />
+    <meta property="og:image" content="assets/hero-dark.webp" />
     <title>ТИШЕ — пространство для жизни</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
@@ -23,391 +23,232 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Перейти к содержимому</a>
-    <header class="header wrap">
-      <a class="logo" href="#main" aria-label="ТИШЕ — на главную"
-        >тише<span class="brand-mark" aria-hidden="true">*</span></a
-      >
-      <span class="brand-caption">Дизайн, который<br />чувствует вас</span>
-      <nav class="navigation" id="navigation" aria-label="Главная навигация">
-        <a href="#projects">Проекты <sup>02</sup></a>
-        <a href="#approach">О студии</a>
-        <a href="#process">Процесс</a>
-        <button class="nav-contact" data-brief>
-          Обсудить проект
-          <span class="icon icon-diagonal" aria-hidden="true"></span>
+    <div class="site-shell">
+      <header class="header wrap">
+        <a class="logo" href="#main" aria-label="ТИШЕ — на главную">тише</a>
+        <nav class="navigation" id="navigation" aria-label="Главная навигация">
+          <a href="#studio">О студии</a><a href="#projects">Проекты</a
+          ><a href="#approach">Подход</a>
+          <button class="button nav-contact" data-brief>Обсудить проект</button>
+        </nav>
+        <button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="navigation"
+          aria-label="Открыть меню"
+        >
+          <span></span><span></span>
         </button>
-      </nav>
-      <button
-        class="menu-toggle"
-        aria-expanded="false"
-        aria-controls="navigation"
-        aria-label="Открыть меню"
-      >
-        <span></span><span></span>
-      </button>
-    </header>
-    <main id="main">
-      <section class="hero wrap" aria-labelledby="hero-title">
-        <div class="hero-prelude">
-          <p class="eyebrow">Меньше шума. Больше жизни.</p>
-          <span>Независимая студия интерьеров / 2026</span>
-        </div>
-        <div class="hero-heading">
-          <div class="hero-copy">
-            <h1 id="hero-title">Дом — это<br /><span>про вас.</span></h1>
-          </div>
-          <div class="hero-intro">
-            <p>
-              Не про тренды. Не про чужие ожидания.<br />Про ваши утра, привычки
-              и маленькие радости. Создаём интерьеры, в которых всё на своём
-              месте. И вы тоже.
+      </header>
+      <main id="main">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-content wrap">
+            <p class="hero-kicker">Интерьеры для жизни</p>
+            <h1 id="hero-title">Быть<br />дома</h1>
+            <p class="hero-description">
+              Создаём пространства, в которых можно быть собой. Продуманные,
+              тёплые, настоящие интерьеры для современной жизни.
             </p>
-            <a class="hero-cta button button-dark" href="#projects"
-              >Исследовать проекты
-              <span class="icon icon-diagonal" aria-hidden="true"></span
-            ></a>
+            <a class="button hero-cta" href="#projects">Смотреть проекты</a>
           </div>
-        </div>
-        <div class="hero-stage">
-          <img
-            class="hero-image"
-            src="assets/interior.webp"
-            alt="Гостиная в естественном свете: льняной диван, натуральный камень и дубовые панели"
-            width="1536"
-            height="1024"
-            fetchpriority="high"
-          />
-          <div class="hero-image-label">
-            <span class="image-label-number">01</span
-            ><span
-              >Тёплый свет<br /><span class="label-muted"
-                >Квартира, 86 м²</span
-              ></span
-            ><a href="#projects" aria-label="Перейти к проектам"
-              ><span class="icon icon-diagonal" aria-hidden="true"></span
-            ></a>
-          </div>
-          <span class="hero-image-caption"
-            >МАТЕРИАЛЫ, КОТОРЫЕ ХОЧЕТСЯ ТРОГАТЬ.</span
-          >
-        </div>
-        <div class="hero-after">
-          <span>Продумано для жизни.<br />Сделано с вниманием.</span
-          ><a href="#approach"
-            >Знакомство со студией
-            <span class="icon icon-down" aria-hidden="true"></span
-          ></a>
-        </div>
-      </section>
-      <section
-        class="section wrap projects-section"
-        id="projects"
-        aria-labelledby="projects-title"
-      >
-        <div class="section-heading">
-          <p class="eyebrow">
-            <span class="section-number">01 /</span> Избранные пространства
-          </p>
-          <span class="edition">ПОРТФОЛИО / 01—02</span>
-        </div>
-        <div class="projects-heading">
-          <h2 id="projects-title">
-            Избранные<br />пространства<span class="heading-dot">.</span>
-          </h2>
-          <p>
-            Две разные истории о главном —<br />чувствовать себя на своём месте.
-          </p>
-        </div>
-        <div class="project-toolbar">
-          <div
-            class="project-filters"
-            role="group"
-            aria-label="Фильтр проектов"
-            hidden
-          >
-            <button data-filter="all" aria-pressed="true">
-              Все проекты <span>02</span></button
-            ><button data-filter="apartment" aria-pressed="false">
-              Квартиры</button
-            ><button data-filter="residence" aria-pressed="false">
-              Апартаменты
-            </button>
-          </div>
-          <p id="project-count" class="project-count" aria-live="polite">
-            02 пространства
-          </p>
-        </div>
-        <div class="projects-grid">
-          <button
-            class="project-card project-card-wide"
-            data-project="0"
-            data-category="apartment"
-            aria-label="Подробнее о проекте Тёплый свет"
-          >
-            <span class="project-image"
-              ><img
-                src="assets/interior.webp"
-                loading="lazy"
-                alt="Тёплая гостиная с мягкими формами и терракотовым креслом"
-                width="1536"
-                height="1024" /><span class="project-tag">01 / Квартира</span
-              ><span class="project-arrow" aria-hidden="true"
-                ><span class="icon icon-diagonal"></span></span></span
-            ><span class="project-info"
-              ><span class="project-title">Тёплый свет</span
-              ><span>Москва · 86 м² · 2025</span></span
-            ><span class="project-description"
-              >Лён, дуб и солнечные часы на стене.</span
-            >
-          </button>
-          <button
-            class="project-card"
-            data-project="1"
-            data-category="residence"
-            aria-label="Подробнее о проекте Тихое утро"
-          >
-            <span class="project-image"
-              ><img
-                src="assets/detail.webp"
-                loading="lazy"
-                alt="Круглый дубовый стол, керамика и мягкая льняная штора"
-                width="1254"
-                height="1254" /><span class="project-tag">02 / Апартаменты</span
-              ><span class="project-arrow" aria-hidden="true"
-                ><span class="icon icon-diagonal"></span></span></span
-            ><span class="project-info"
-              ><span class="project-title">Тихое утро</span
-              ><span>64 м² · Концепция · 2026</span></span
-            ><span class="project-description"
-              >Маленькие ритуалы. Большое чувство дома.</span
-            >
-          </button>
-        </div>
-        <p class="projects-footnote">
-          <span class="small-dot"></span> Концептуальные проекты студии.
-          Визуализации созданы с помощью ИИ.
-        </p>
-      </section>
-      <section
-        class="approach section"
-        id="approach"
-        aria-labelledby="approach-title"
-      >
-        <div class="wrap approach-grid">
-          <div class="approach-photo">
+          <div class="hero-visual">
             <img
-              src="assets/detail.webp"
-              loading="lazy"
-              alt="Детали тихого утра: ветви оливы, керамическая ваза и натуральный дуб"
-              width="1254"
-              height="1254"
-            /><span>Детали, которые чувствуешь.</span>
-          </div>
-          <div class="approach-copy">
-            <p class="eyebrow">
-              <span class="section-number">02 /</span> Философия ТИШЕ
-            </p>
-            <h2 id="approach-title">Сначала вы.<br />Потом интерьер.</h2>
-            <p class="approach-lead">
-              Любимая чашка утром. Свет на стене.<br />Вечер, которому не
-              хочется торопиться.
-            </p>
-            <p>
-              Дом складывается из вещей, которые важны вам. Поэтому наш первый
-              инструмент — не карандаш, а умение слушать. Мы начинаем с вашего
-              образа жизни и только потом переходим к пространству.
-            </p>
-            <div class="principles">
-              <div>
-                <span>01</span>
-                <h3>Честные материалы</h3>
-                <p>
-                  Дерево остаётся деревом. Камень — камнем. Ничто не
-                  притворяется.
-                </p>
-              </div>
-              <div>
-                <span>02</span>
-                <h3>Меньше, но лучше</h3>
-                <p>У каждого предмета есть смысл. А у вас — место для жизни.</p>
-              </div>
-              <div>
-                <span>03</span>
-                <h3>Вне быстрого времени</h3>
-                <p>
-                  Решения, которые останутся близкими, когда сменятся тренды.
-                </p>
-              </div>
+              class="hero-image"
+              src="assets/hero-dark.webp"
+              alt="Тёмное кресло у камина из травертина, ореховые панели и тёплый солнечный свет"
+              width="1536"
+              height="1024"
+              fetchpriority="high"
+            />
+            <div class="hero-detail">
+              <img
+                src="assets/bedroom.webp"
+                alt="Прикроватный светильник на фоне деревянных панелей и льняное постельное бельё"
+                width="1122"
+                height="1402"
+              />
             </div>
           </div>
-        </div>
-      </section>
-      <section
-        class="process section"
-        id="process"
-        aria-labelledby="process-title"
-      >
-        <div class="wrap process-grid">
-          <div class="process-heading">
-            <p class="eyebrow">
-              <span class="section-number">03 /</span> Как появляется дом
-            </p>
-            <h2 id="process-title">От идеи<br />до вашего дома.</h2>
-            <p>Четыре понятных шага.<br />Всё сложное берём на себя.</p>
-            <button class="text-link" data-brief>
-              Начать с разговора
-              <span class="icon icon-diagonal" aria-hidden="true"></span>
-            </button>
-          </div>
-          <div class="steps">
-            <details class="step" open>
-              <summary>
-                <span class="step-number">01</span><span>Услышать вас</span
-                ><span class="expand-mark" aria-hidden="true"></span>
-              </summary>
-              <div class="step-body">
-                <p>
-                  Знакомимся с вами, вашими привычками и планами. Обсуждаем
-                  бюджет, смотрим на помещение и находим главное.
-                </p>
-                <span>Знакомство и бриф</span>
-              </div>
-            </details>
-            <details class="step">
-              <summary>
-                <span class="step-number">02</span><span>Найти образ</span
-                ><span class="expand-mark" aria-hidden="true"></span>
-              </summary>
-              <div class="step-body">
-                <p>
-                  Соединяем планировку, материалы и свет в цельную концепцию.
-                  Чтобы вы почувствовали свой будущий дом ещё до ремонта.
-                </p>
-                <span>Концепция и планировка</span>
-              </div>
-            </details>
-            <details class="step">
-              <summary>
-                <span class="step-number">03</span
-                ><span>Продумать до мелочей</span
-                ><span class="expand-mark" aria-hidden="true"></span>
-              </summary>
-              <div class="step-body">
-                <p>
-                  Готовим рабочие чертежи, подбираем мебель и отделку. Каждое
-                  решение получает своё место и обоснование.
-                </p>
-                <span>Документация и комплектация</span>
-              </div>
-            </details>
-            <details class="step">
-              <summary>
-                <span class="step-number">04</span><span>Воплотить вместе</span
-                ><span class="expand-mark" aria-hidden="true"></span>
-              </summary>
-              <div class="step-body">
-                <p>
-                  Сопровождаем реализацию, общаемся с подрядчиками и помогаем
-                  сохранить замысел — до последнего светильника.
-                </p>
-                <span>Авторское сопровождение</span>
-              </div>
-            </details>
-          </div>
-        </div>
-      </section>
-      <section class="faq-section section wrap" aria-labelledby="faq-title">
-        <div class="faq-grid">
-          <div>
-            <p class="eyebrow">
-              <span class="section-number">04 /</span> Прежде чем начать
-            </p>
-            <h2 id="faq-title">Вопросы?<br />Отвечаем.</h2>
-          </div>
-          <div class="faq-list">
-            <details>
-              <summary>
-                Сколько стоит дизайн-проект?<span
-                  class="expand-mark"
-                  aria-hidden="true"
-                ></span>
-              </summary>
+        </section>
+        <section class="values-section" id="approach" aria-label="Наш подход">
+          <div class="wrap values-grid">
+            <article>
+              <h2>Натуральные материалы</h2>
               <p>
-                Стоимость зависит от площади и состава работ. Обычно предложение
-                готовят после знакомства и обсуждения задач. ТИШЕ —
-                портфолио-концепт: здесь нет реальных коммерческих предложений.
+                Работаем с камнем, деревом,<br />текстилем и природными
+                фактурами.
               </p>
-            </details>
-            <details>
-              <summary>
-                Можно работать удалённо?<span
-                  class="expand-mark"
-                  aria-hidden="true"
-                ></span>
-              </summary>
-              <p>
-                Концепцию и документацию можно обсуждать онлайн. Для обмеров и
-                реализации понадобятся специалисты на месте. Формат и границы
-                работы стоит определить до начала проекта.
-              </p>
-            </details>
-            <details>
-              <summary>
-                Что подготовить к первой встрече?<span
-                  class="expand-mark"
-                  aria-hidden="true"
-                ></span>
-              </summary>
-              <p>
-                План помещения, несколько близких вам интерьеров и примерный
-                бюджет. Начать можно с короткого брифа — заполните его и
-                скачайте прямо на сайте.
-              </p>
-            </details>
+            </article>
+            <article>
+              <h2>Честные решения</h2>
+              <p>Продумываем каждый элемент<br />с заботой о вашем комфорте.</p>
+            </article>
+            <article>
+              <h2>Вне времени</h2>
+              <p>Создаём интерьеры, которые<br />остаются актуальными долго.</p>
+            </article>
           </div>
-        </div>
-      </section>
-      <section
-        class="contact-section"
-        id="contact"
-        aria-labelledby="contact-title"
-      >
-        <div class="wrap contact-inner">
-          <div class="contact-top">
-            <p class="eyebrow">
-              <span class="small-dot"></span> Начало вашей истории
-            </p>
-            <span>ТИШЕ / ДАВАЙТЕ ЗНАКОМИТЬСЯ</span>
-          </div>
-          <h2 id="contact-title">Следующая<br />история — ваша.</h2>
-          <div class="contact-bottom">
-            <p>Расскажите, о чём мечтаете.<br />Начнём с самого важного.</p>
-            <button class="button button-light" data-brief>
-              Обсудим ваш проект
-              <span class="icon icon-diagonal" aria-hidden="true"></span>
-            </button>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="footer wrap">
-      <div class="footer-top">
-        <a class="logo" href="#main" aria-label="ТИШЕ — на главную"
-          >тише<span class="brand-mark" aria-hidden="true">*</span></a
+        </section>
+        <section
+          class="studio-section wrap"
+          id="studio"
+          aria-labelledby="studio-title"
         >
-        <p>Меньше шума.<br />Больше жизни.</p>
-        <a class="back-top" href="#main"
-          >Вернуться наверх <span class="icon icon-up" aria-hidden="true"></span
-        ></a>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span id="year">2026</span> ТИШЕ · Портфолио-концепт</span
-        ><span>Вымышленная студия · AI-визуализации</span
-        ><button class="plain-button" id="privacy-button">
-          О конфиденциальности
-        </button>
-      </div>
-    </footer>
+          <div class="studio-photo">
+            <img
+              src="assets/hero-dark.webp"
+              loading="lazy"
+              alt="Фактурное кресло и натуральный камень в спокойном интерьере"
+              width="1536"
+              height="1024"
+            />
+          </div>
+          <div class="studio-copy">
+            <h2 id="studio-title">Сначала вы.</h2>
+            <div class="studio-columns">
+              <p>
+                Мы — студия интерьерной архитектуры ТИШЕ. Мы верим, что дом
+                начинается с человека. С его привычек, ритма и ощущений. Поэтому
+                в основе каждого проекта — внимательное отношение к вам и вашему
+                образу жизни.
+              </p>
+              <p>
+                Мы объединяем архитектуру, функциональность и эстетику, чтобы
+                создавать пространства, где легко дышать, приятно находиться и
+                хочется возвращаться. Продумываем каждую деталь — от планировки
+                до финальных штрихов.
+              </p>
+              <button class="button" data-studio>О студии</button>
+            </div>
+          </div>
+        </section>
+        <section
+          class="portfolio-section"
+          id="projects"
+          aria-labelledby="projects-title"
+        >
+          <div class="wrap portfolio-layout">
+            <div class="projects-grid" id="project-list">
+              <button
+                class="project-card"
+                data-project="0"
+                data-category="apartment"
+                aria-label="Подробнее о проекте Тёплый свет"
+              >
+                <span class="project-image"
+                  ><img
+                    src="assets/interior.webp"
+                    loading="lazy"
+                    alt="Светлая гостиная с льняным диваном и натуральным камнем"
+                    width="1536"
+                    height="1024" /></span
+                ><span class="project-title">Тёплый свет</span
+                ><span class="project-meta">Квартира · 86 м²</span>
+              </button>
+              <button
+                class="project-card"
+                data-project="1"
+                data-category="house"
+                aria-label="Подробнее о проекте Тихое утро"
+              >
+                <span class="project-image"
+                  ><img
+                    src="assets/dining.webp"
+                    loading="lazy"
+                    alt="Тёмная столовая с дубовым столом и керамической вазой"
+                    width="1122"
+                    height="1402" /></span
+                ><span class="project-title">Тихое утро</span
+                ><span class="project-meta">Загородный дом · 180 м²</span>
+              </button>
+              <button
+                class="project-card"
+                data-project="2"
+                data-category="residence"
+                aria-label="Подробнее о проекте Линия покоя"
+              >
+                <span class="project-image"
+                  ><img
+                    src="assets/bedroom.webp"
+                    loading="lazy"
+                    alt="Спальня с льняными шторами, мягким светом и ореховыми панелями"
+                    width="1122"
+                    height="1402" /></span
+                ><span class="project-title">Линия покоя</span
+                ><span class="project-meta">Апартаменты · 64 м²</span>
+              </button>
+            </div>
+            <div class="portfolio-intro">
+              <h2 id="projects-title">Проекты</h2>
+              <p>
+                Каждый проект — это история о людях, месте и ощущениях. Мы
+                создаём интерьеры, которые выглядят естественно, живут вместе с
+                вами и остаются актуальными на протяжении многих лет.
+              </p>
+              <a class="button" href="#project-list">Смотреть проекты</a>
+              <details class="filter-panel" hidden>
+                <summary>Выбрать пространство</summary>
+                <div
+                  class="project-filters"
+                  role="group"
+                  aria-label="Фильтр проектов"
+                >
+                  <button data-filter="all" aria-pressed="true">Все</button
+                  ><button data-filter="apartment" aria-pressed="false">
+                    Квартиры</button
+                  ><button data-filter="house" aria-pressed="false">Дома</button
+                  ><button data-filter="residence" aria-pressed="false">
+                    Апартаменты
+                  </button>
+                </div>
+              </details>
+              <p id="project-count" class="sr-only" aria-live="polite">
+                Показаны все проекты.
+              </p>
+              <p class="portfolio-disclaimer">
+                Концептуальные проекты.<br />Изображения созданы с помощью ИИ.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section
+          class="contact-section"
+          id="contact"
+          aria-labelledby="contact-title"
+        >
+          <img
+            class="contact-image"
+            src="assets/dining.webp"
+            loading="lazy"
+            alt=""
+            width="1122"
+            height="1402"
+          />
+          <div class="contact-shade"></div>
+          <div class="wrap contact-copy">
+            <h2 id="contact-title">Ваша<br />история дома</h2>
+            <p>
+              Обсудим ваш проект и найдём решения,<br />которые подойдут именно
+              вам.
+            </p>
+            <button class="button" data-brief>Начать проект</button>
+          </div>
+        </section>
+      </main>
+      <footer class="footer wrap">
+        <a class="logo" href="#main" aria-label="ТИШЕ — на главную">тише</a>
+        <nav aria-label="Навигация в подвале">
+          <a href="#studio">О студии</a><a href="#projects">Проекты</a
+          ><a href="#approach">Подход</a>
+        </nav>
+        <div class="footer-meta">
+          <span>© <span id="year">2026</span> ТИШЕ · Портфолио-концепт</span
+          ><button class="plain-button" id="privacy-button">
+            Конфиденциальность
+          </button>
+        </div>
+      </footer>
+    </div>
     <dialog id="brief-dialog" class="modal">
       <button class="close-modal" aria-label="Закрыть диалог">×</button>
       <div id="brief-content">
@@ -455,7 +296,6 @@
             ></textarea></label
           ><button class="button button-dark" type="submit">
             Скачать мой бриф
-            <span class="icon icon-down" aria-hidden="true"></span>
           </button>
           <p class="form-note">
             Файл будет создан только на вашем устройстве. Мы не сохраняем
@@ -477,7 +317,6 @@
         </p>
         <button class="text-link" id="project-to-brief">
           Хочу обсудить свою идею
-          <span class="icon icon-diagonal" aria-hidden="true"></span>
         </button>
       </div>
     </dialog>
@@ -494,6 +333,76 @@
         закрытия страницы введённые данные не сохраняются. Шрифты и изображения
         загружаются с самого сайта.
       </p>
+    </dialog>
+    <dialog
+      id="studio-dialog"
+      class="modal studio-modal"
+      aria-labelledby="studio-dialog-title"
+    >
+      <button class="close-modal" aria-label="Закрыть диалог">×</button>
+      <p class="eyebrow">Меньше шума. Больше жизни.</p>
+      <h2 id="studio-dialog-title">Дом начинается с вас</h2>
+      <p class="modal-description">
+        Внимание к человеку, честные материалы и понятный процесс — три основы
+        нашей работы. ТИШЕ — вымышленная студия: этот сайт показывает подход к
+        дизайну и разработке интерфейсов.
+      </p>
+      <h3>Как мы работаем</h3>
+      <div class="steps">
+        <details class="step">
+          <summary>Знакомимся и слушаем</summary>
+          <p>
+            Обсуждаем ваши привычки, пожелания и бюджет. Начать можно с
+            короткого брифа, который вы скачаете на своём устройстве.
+          </p>
+        </details>
+        <details class="step">
+          <summary>Находим образ</summary>
+          <p>
+            Соединяем планировку, материалы и свет в цельную концепцию будущего
+            дома.
+          </p>
+        </details>
+        <details class="step">
+          <summary>Продумываем детали</summary>
+          <p>
+            Готовим чертежи, выбираем отделку и мебель. Каждое решение получает
+            своё место и обоснование.
+          </p>
+        </details>
+        <details class="step">
+          <summary>Воплощаем вместе</summary>
+          <p>
+            Сопровождаем реализацию и помогаем сохранить замысел — от первого
+            выкраса до последнего светильника.
+          </p>
+        </details>
+      </div>
+      <h3>Возможно, вы спросите</h3>
+      <div class="faq-list">
+        <details>
+          <summary>Сколько стоит дизайн-проект?</summary>
+          <p>
+            Стоимость зависит от площади, задач и состава работ. Здесь
+            представлен портфолио-концепт, поэтому реальные коммерческие услуги
+            и цены не предлагаются.
+          </p>
+        </details>
+        <details>
+          <summary>Можно работать удалённо?</summary>
+          <p>
+            Концепцию и документацию можно обсуждать онлайн. Для обмеров и
+            реализации понадобятся специалисты на месте.
+          </p>
+        </details>
+        <details>
+          <summary>Что подготовить к знакомству?</summary>
+          <p>
+            План помещения, несколько близких вам интерьеров и примерный бюджет.
+            Короткий бриф на сайте поможет сформулировать пожелания.
+          </p>
+        </details>
+      </div>
     </dialog>
   </body>
 </html>
