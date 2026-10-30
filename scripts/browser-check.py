@@ -20,7 +20,14 @@ with sync_playwright() as playwright:
     response = page.goto(args.url, wait_until='networkidle')
     assert response.status == 200
     page.evaluate('document.fonts.ready')
-    assert page.locator('h1').inner_text() == 'Быть\nдома.'
+    assert page.locator('h1').inner_text() == 'Дом — это\nпро вас.'
+    assert page.evaluate('getComputedStyle(document.body).backgroundColor') == 'rgb(228, 228, 228)'
+    assert page.evaluate('getComputedStyle(document.body).fontFamily').startswith('Inter')
+    assert page.evaluate('getComputedStyle(document.body).fontSize') == '16px'
+    page.set_viewport_size({'width': 1920, 'height': 1080})
+    assert page.locator('h1').evaluate('(el) => getComputedStyle(el).fontSize') == '127px'
+    assert page.locator('h1').evaluate('(el) => getComputedStyle(el).fontWeight') == '700'
+    page.set_viewport_size({'width': 1440, 'height': 1000})
     for image in page.locator('main img').all():
         image.scroll_into_view_if_needed()
         image.evaluate('(el) => el.decode()')
@@ -82,11 +89,10 @@ with sync_playwright() as playwright:
     for width in [320, 390, 768, 1024, 1440, 1920]:
         page.set_viewport_size({'width': width, 'height': 900})
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), width
-        # The desktop hero description must not collide with its CTA.
-        if width >= 768:
-            copy = page.locator('.hero-copy').bounding_box()
-            cta = page.locator('.hero-cta').bounding_box()
-            assert copy['x'] + copy['width'] + 16 <= cta['x'], width
+        # Both the heading and the intro must remain within the viewport.
+        for selector in ['.hero-copy', '.hero-intro', '.hero-cta']:
+            rect = page.locator(selector).bounding_box()
+            assert rect['x'] >= 0 and rect['x'] + rect['width'] <= width, (width, selector)
 
     page.set_viewport_size({'width': 390, 'height': 844})
     page.locator('.menu-toggle').click()

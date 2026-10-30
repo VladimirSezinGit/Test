@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f4f1e9" />
+    <meta name="theme-color" content="#E4E4E4" />
     <meta
       name="description"
       content="ТИШЕ — концепт студии интерьеров. Пространства с характером, натуральные материалы и внимание к вашему образу жизни."
@@ -25,11 +25,9 @@
     <a class="skip-link" href="#main">Перейти к содержимому</a>
     <header class="header wrap">
       <a class="logo" href="#main" aria-label="ТИШЕ — на главную"
-        >тише<span>.</span></a
+        >тише<span class="brand-mark" aria-hidden="true">*</span></a
       >
-      <span class="brand-caption"
-        >Студия интерьеров<br />и спокойной жизни</span
-      >
+      <span class="brand-caption">Дизайн, который<br />чувствует вас</span>
       <nav class="navigation" id="navigation" aria-label="Главная навигация">
         <a href="#projects">Проекты <sup>02</sup></a>
         <a href="#approach">О студии</a>
@@ -49,46 +47,55 @@
       </button>
     </header>
     <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-prelude wrap">
-          <p class="eyebrow">
-            <span class="small-dot"></span> Меньше шума. Больше жизни.
-          </p>
-          <span>Архитектура повседневности / 2026</span>
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-prelude">
+          <p class="eyebrow">Меньше шума. Больше жизни.</p>
+          <span>Независимая студия интерьеров / 2026</span>
+        </div>
+        <div class="hero-heading">
+          <div class="hero-copy">
+            <h1 id="hero-title">Дом — это<br /><span>про вас.</span></h1>
+          </div>
+          <div class="hero-intro">
+            <p>
+              Не про тренды. Не про чужие ожидания.<br />Про ваши утра, привычки
+              и маленькие радости. Создаём интерьеры, в которых всё на своём
+              месте. И вы тоже.
+            </p>
+            <a class="hero-cta button button-dark" href="#projects"
+              >Исследовать проекты
+              <span class="icon icon-diagonal" aria-hidden="true"></span
+            ></a>
+          </div>
         </div>
         <div class="hero-stage">
           <img
             class="hero-image"
             src="assets/interior.webp"
-            alt="Залитая вечерним светом гостиная: льняной диван, дуб и натуральный камень"
+            alt="Гостиная в естественном свете: льняной диван, натуральный камень и дубовые панели"
             width="1536"
             height="1024"
             fetchpriority="high"
           />
-          <div class="hero-shade"></div>
-          <div class="hero-topline">
-            <span>Естественно.<br />Вне времени.</span
-            ><span>Частные пространства<br />с вашим характером</span>
+          <div class="hero-image-label">
+            <span class="image-label-number">01</span
+            ><span
+              >Тёплый свет<br /><span class="label-muted"
+                >Квартира, 86 м²</span
+              ></span
+            ><a href="#projects" aria-label="Перейти к проектам"
+              ><span class="icon icon-diagonal" aria-hidden="true"></span
+            ></a>
           </div>
-          <div class="hero-copy">
-            <h1 id="hero-title">Быть<br /><em>дома.</em></h1>
-            <p>Место, где можно выдохнуть.<br />И наконец услышать себя.</p>
-          </div>
-          <a class="hero-cta" href="#projects"
-            ><span>Заглянуть<br />в наши проекты</span
-            ><span class="icon icon-diagonal" aria-hidden="true"></span
-          ></a>
-          <div class="hero-index">
-            <span>01 — Тёплый свет</span><span>86 м² / Москва</span>
-          </div>
+          <span class="hero-image-caption"
+            >МАТЕРИАЛЫ, КОТОРЫЕ ХОЧЕТСЯ ТРОГАТЬ.</span
+          >
         </div>
-        <div class="hero-after wrap">
-          <span
-            >Не просто красивое пространство.<br />Дом, в котором хорошо именно
-            вам.</span
-          ><a href="#approach" aria-label="Узнать о подходе студии"
-            ><span>Листайте неспешно</span
-            ><span class="icon icon-down" aria-hidden="true"></span
+        <div class="hero-after">
+          <span>Продумано для жизни.<br />Сделано с вниманием.</span
+          ><a href="#approach"
+            >Знакомство со студией
+            <span class="icon icon-down" aria-hidden="true"></span
           ></a>
         </div>
       </section>
@@ -101,11 +108,15 @@
           <p class="eyebrow">
             <span class="section-number">01 /</span> Избранные пространства
           </p>
-          <span class="edition">Две истории. Один подход.</span>
+          <span class="edition">ПОРТФОЛИО / 01—02</span>
         </div>
         <div class="projects-heading">
-          <h2 id="projects-title">У каждого дома<br />свой <em>голос.</em></h2>
-          <p>Мы делаем его тише.<br />Чтобы стало слышно ваше.</p>
+          <h2 id="projects-title">
+            Избранные<br />пространства<span class="heading-dot">.</span>
+          </h2>
+          <p>
+            Две разные истории о главном —<br />чувствовать себя на своём месте.
+          </p>
         </div>
         <div class="project-toolbar">
           <div
@@ -196,7 +207,7 @@
             <p class="eyebrow">
               <span class="section-number">02 /</span> Философия ТИШЕ
             </p>
-            <h2 id="approach-title">Не интерьер.<br />Ваш <em>ритм.</em></h2>
+            <h2 id="approach-title">Сначала вы.<br />Потом интерьер.</h2>
             <p class="approach-lead">
               Любимая чашка утром. Свет на стене.<br />Вечер, которому не
               хочется торопиться.
@@ -241,9 +252,7 @@
             <p class="eyebrow">
               <span class="section-number">03 /</span> Как появляется дом
             </p>
-            <h2 id="process-title">
-              От первого<br />«а что, если»<br />до <em>«я дома».</em>
-            </h2>
+            <h2 id="process-title">От идеи<br />до вашего дома.</h2>
             <p>Четыре понятных шага.<br />Всё сложное берём на себя.</p>
             <button class="text-link" data-brief>
               Начать с разговора
@@ -313,7 +322,7 @@
             <p class="eyebrow">
               <span class="section-number">04 /</span> Прежде чем начать
             </p>
-            <h2 id="faq-title">Несколько<br /><em>ответов.</em></h2>
+            <h2 id="faq-title">Вопросы?<br />Отвечаем.</h2>
           </div>
           <div class="faq-list">
             <details>
@@ -368,9 +377,9 @@
             <p class="eyebrow">
               <span class="small-dot"></span> Начало вашей истории
             </p>
-            <span>Без спешки.<br />С вниманием к вам.</span>
+            <span>ТИШЕ / ДАВАЙТЕ ЗНАКОМИТЬСЯ</span>
           </div>
-          <h2 id="contact-title">А каким будет<br /><em>ваш дом?</em></h2>
+          <h2 id="contact-title">Следующая<br />история — ваша.</h2>
           <div class="contact-bottom">
             <p>Расскажите, о чём мечтаете.<br />Начнём с самого важного.</p>
             <button class="button button-light" data-brief>
@@ -384,7 +393,7 @@
     <footer class="footer wrap">
       <div class="footer-top">
         <a class="logo" href="#main" aria-label="ТИШЕ — на главную"
-          >тише<span>.</span></a
+          >тише<span class="brand-mark" aria-hidden="true">*</span></a
         >
         <p>Меньше шума.<br />Больше жизни.</p>
         <a class="back-top" href="#main"

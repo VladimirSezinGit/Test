@@ -88,9 +88,6 @@ projectFilters.querySelectorAll("[data-filter]").forEach((filter) => {
     projectFilters.querySelectorAll("[data-filter]").forEach((button) => {
       button.setAttribute("aria-pressed", String(button === filter));
     });
-    document
-      .querySelector(".projects-grid")
-      .classList.toggle("is-filtered", category !== "all");
     document.querySelector("#project-count").textContent =
       `${String(count).padStart(2, "0")} ${count === 1 ? "пространство" : "пространства"}`;
   });

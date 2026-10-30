@@ -36,7 +36,7 @@ test("HTTP: сайт и ресурсы доступны, служебные пу
   const page = await fetch(base);
   assert.equal(page.status, 200);
   assert.match(await page.text(), /Меньше шума/);
-  const font = await fetch(`${base}/assets/manrope.woff2`);
+  const font = await fetch(`${base}/assets/inter.woff2`);
   assert.equal(font.status, 200);
   assert.equal(font.headers.get("content-type"), "font/woff2");
   for (const path of [
