@@ -1,0 +1,19 @@
+{
+  "name": "tishe-interior-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Портфолио-концепт интерьерной студии ТИШЕ. HTML, CSS и JavaScript без зависимостей.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node scripts/server.mjs",
+    "start": "node scripts/server.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/server.mjs --dist",
+    "test": "node --test scripts/site.test.mjs",
+    "check": "node --check app.js && node --check scripts/server.mjs && node --check scripts/build.mjs"
+  },
+  "license": "MIT"
+}
