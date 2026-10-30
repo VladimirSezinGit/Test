@@ -28,7 +28,6 @@
   --link-hover: #e5c8a5;
   --hero-edge-shade: #1d1c1b38;
   --hero-top-shade: #171715b3;
-  --hero-detail-line: #312a22;
   --values-surface: #2e2c29;
   --portfolio-surface: #292725;
   --contact-base: #151413;
@@ -260,20 +259,6 @@ em {
   height: 100%;
   width: 100%;
   object-position: 45% center;
-}
-.hero-detail {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 28%;
-  height: 32%;
-  z-index: 1;
-  border-left: 1px solid var(--hero-detail-line);
-}
-.hero-detail img {
-  width: 100%;
-  height: 100%;
-  object-position: 32% 60%;
 }
 .values-section {
   background: var(--values-surface);
@@ -869,10 +854,6 @@ form .button {
   .hero-visual {
     left: 31%;
   }
-  .hero-detail {
-    width: 30%;
-    height: 28%;
-  }
   .values-grid article {
     padding-inline: 24px;
   }
@@ -1149,16 +1130,6 @@ form .button {
   }
   .hero-visual:after {
     display: none;
-  }
-  .hero-detail {
-    width: 44%;
-    height: 46%;
-    border-left: 0;
-    bottom: 0;
-    right: 0;
-  }
-  .hero-detail img {
-    object-position: 30% center;
   }
   .values-grid {
     grid-template-columns: minmax(0, 1fr);
