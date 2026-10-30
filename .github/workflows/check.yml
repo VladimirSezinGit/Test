@@ -1,4 +1,4 @@
-name: Site checks
+name: Проверка сайта
 
 on:
   push:
@@ -9,12 +9,18 @@ permissions:
 
 jobs:
   check:
+    name: Сборка и проверки
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Получить исходники
+        uses: actions/checkout@v4
+      - name: Настроить Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: npm run check
-      - run: npm test
-      - run: npm run build
+      - name: Проверить JavaScript
+        run: npm run check
+      - name: Проверить ресурсы и HTTP
+        run: npm test
+      - name: Собрать сайт
+        run: npm run build

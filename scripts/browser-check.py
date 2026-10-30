@@ -1,4 +1,4 @@
-"""Optional UI regression checks. Start the site, then run this script."""
+"""Дополнительные проверки интерфейса. Перед запуском включите локальный сервер."""
 import argparse
 import os
 import shutil
@@ -27,7 +27,7 @@ with sync_playwright() as playwright:
         image.evaluate('(el) => el.decode()')
     assert page.evaluate('Array.from(document.images).every(i => i.complete && i.naturalWidth > 0)')
 
-    # Filters also update their accessible state and announcement.
+    # Фильтры обновляют состояние доступности и сообщение о результатах.
     page.locator('.filter-panel > summary').click()
     for category, project in [('apartment', '0'), ('house', '1'), ('residence', '2')]:
         button = page.locator(f'[data-filter="{category}"]')
@@ -49,7 +49,7 @@ with sync_playwright() as playwright:
 
     page.locator('[data-studio]').click()
     assert page.locator('#studio-dialog').evaluate('(el) => el.open')
-    # Use the keyboard for accordion controls.
+    # Проверяем раскрывающиеся секции с клавиатуры.
     summary = page.locator('.steps details').nth(1).locator('summary')
     summary.focus()
     page.keyboard.press('Enter')
@@ -88,7 +88,7 @@ with sync_playwright() as playwright:
     for width in [320, 390, 768, 1024, 1440, 1920]:
         page.set_viewport_size({'width': width, 'height': 900})
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), width
-        # Readable content stays on-screen; the title may overlap the photograph.
+        # Текст остаётся в пределах экрана; заголовок может заходить на фотографию.
         for selector in ['h1', '.hero-description', '.hero-cta', '.studio-copy']:
             rect = page.locator(selector).bounding_box()
             assert rect['x'] >= 0 and rect['x'] + rect['width'] <= width, (width, selector)
@@ -117,4 +117,4 @@ with sync_playwright() as playwright:
     assert page.evaluate('getComputedStyle(document.documentElement).scrollBehavior') == 'auto'
     assert not errors, errors
     browser.close()
-    print('Passed: responsive layout, filters, touch gallery, studio/project dialogs, accordions, form validation, brief download, menu and reduced motion; no JS errors.')
+    print('Проверки прошли: адаптивность, фильтры, мобильная галерея, диалоги, раскрывающиеся секции, форма, скачивание брифа, меню и уменьшенная анимация. Ошибок JavaScript нет.')

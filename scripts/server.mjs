@@ -31,7 +31,7 @@ export function createServer(directory = root) {
       return;
     }
     const path = pathname === "/" ? "index.html" : pathname.slice(1);
-    // Expose only the site, never Git metadata, source tooling or arbitrary files.
+    // Отдаём только файлы сайта; метаданные Git и служебные файлы недоступны.
     if (
       !["index.html", "styles.css", "app.js"].includes(path) &&
       !/^assets\/[a-zA-Z0-9_-]+\.(webp|svg|woff2|txt)$/.test(path)

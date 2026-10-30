@@ -2,7 +2,7 @@
   "name": "tishe-interior-studio",
   "version": "1.0.0",
   "private": true,
-  "description": "Портфолио-концепт интерьерной студии ТИШЕ. HTML, CSS и JavaScript без зависимостей.",
+  "description": "Адаптивный сайт-портфолио студии интерьерной архитектуры «ТИШЕ» на HTML, CSS и JavaScript.",
   "type": "module",
   "engines": {
     "node": ">=22"
@@ -15,5 +15,9 @@
     "test": "node --test scripts/site.test.mjs",
     "check": "node --check app.js && node --check scripts/server.mjs && node --check scripts/build.mjs"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VladimirSezinGit/Test.git"
+  }
 }
